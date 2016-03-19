@@ -1,11 +1,11 @@
 # grunt-expand-in-place
 
-This simple task expands an html placeholder section into css and javascript imports so something like this
+This simple task expands an HTML comment block section into CSS and Javascript imports so something like this:
 ```html
 	<!-- expand_section ["assets/app/js/**/*.js"] -->
 	<!-- /expand_section -->
 ```
-becomes
+Becomes:
 ```html
 	<!-- expand_section ["assets/app/js/**/*.js"] -->
 	<script type="text/javascript" src="./assets/app/js/form/core/js1.js"></script>
@@ -14,9 +14,9 @@ becomes
 	<script type="text/javascript" src="./assets/app/js/form/types/js4.js"></script>
 	<!-- /expand_section -->
 ```
-Please note that the task doesn't remove the comment section heading and that **it modifies the target html file in place**.
+Please note that the task doesn't remove the comment section heading and that **it modifies the target HTML file in place**.
 
-My motivation for this was that I usually work on my HTML files directly and not a "template" so I wanted a tool to handle importing js and css into my development HTML file directly.
+My motivation for this was that I usually work on my HTML files directly and not a "template" so I wanted a tool to handle importing JS and CSS into my development HTML file directly.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -41,9 +41,9 @@ In your project's Gruntfile, add a section named `expand-in-place` to the data o
 grunt.initConfig({
   'expand-in-place': {
     your_target: {
-        'target' : ['path/to/my/files/**/*.html']
-    },
-  },
+      target: ['path/to/my/files/**/*.html']
+    }
+  }
 });
 ```
 
@@ -62,12 +62,11 @@ In this example,
 
 ```js
 grunt.initConfig({
-    'expand-in-place': {
-        'dev': {
-          'target' : ['my/files/*.html']
-        }
-    },
-
+  'expand-in-place': {
+    dev: {
+      target: ['my/files/*.html']
+    }
+  }
 });
 ```
 
@@ -78,26 +77,27 @@ HTML Code:
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!-- expand_section ["assets/app/css/*.css", "assets/app/css/directory/*.css"] -->
-	<!-- /expand_section -->
 	<title>Simple title</title>
+  <!-- expand_section ["assets/app/css/*.css", "assets/app/css/directory/*.css"] -->
+	<!-- /expand_section -->
 </head>
 <body>
-    <p>Some text</p>
+  <p>Some text</p>
 	<!-- expand_section ["assets/app/tmpl/**/*.tmpl"] -->
 	<!-- /expand_section -->
 
-    <p>Some text</p>
+  <p>Some text</p>
 
 	<!-- expand_section ["assets/app/js/**/*.js"] -->
 	<!-- /expand_section -->
-
 </body>
 </html>
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+1. We're going with [airbnb's Style-guides](https://github.com/airbnb/javascript/).
+1. Add unit tests for any new or changed functionality.
+1. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
 _(Nothing yet)_
