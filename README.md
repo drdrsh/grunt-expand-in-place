@@ -1,4 +1,4 @@
-# grunt-expand-in-place
+# grunt-expand-in-place [![Build Status](https://travis-ci.org/drdrsh/grunt-expand-in-place.svg?branch=master)](https://travis-ci.org/drdrsh/grunt-expand-in-place)
 
 This simple task expands an HTML comment block section into CSS and Javascript imports so something like this:
 ```html
