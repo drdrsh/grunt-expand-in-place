@@ -30,9 +30,9 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     'expand-in-place': {
-        'dev': {
-          'target' : ['test/fixtures/*.html']
-        }
+      dev: {
+        target: ['test/fixtures/*.html']
+      }
     },
 
     // Unit tests.
@@ -40,7 +40,6 @@ module.exports = function(grunt) {
       setup: ['test/setup.js'],
       tests: ['test/*_test.js']
     }
-
   });
 
   // Actually load this plugin's task(s).
@@ -51,8 +50,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
-  grunt.registerTask('test', ['jshint:all', 'clean', 'nodeunit:setup', 'expand-in-place', 'nodeunit:tests']);
+  grunt.registerTask('test', [
+    'jshint',
+    'clean',
+    'nodeunit:setup',
+    'expand-in-place',
+    'nodeunit:tests'
+  ]);
 
   grunt.registerTask('default', ['test']);
-
 };

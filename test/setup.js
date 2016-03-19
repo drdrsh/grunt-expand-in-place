@@ -11,20 +11,18 @@ exports['setup'] = {
     grunt.file.delete(config.fixtureDir);
     grunt.file.mkdir(config.fixtureDir);
 
-    var files = grunt.file.expand({
-      'filter' : grunt.file.isFile
-    }, config.templateDir +'**/*');
+    var files = grunt.file.expand({ filter: grunt.file.isFile }, config.templateDir + '**/*');
 
-    for(let i=0; i<files.length; i++) {
-      var srcPath = files[i];
-      var dstPath = config.fixtureDir + files[i].substr(config.templateDir.length);
+    files.forEach(srcPath => {
+      var dstPath = config.fixtureDir + srcPath.substr(config.templateDir.length);
       grunt.file.copy(srcPath, dstPath);
-    }
+    });
+
     done();
   },
 
-  'main': function(test) {
-    test.equal(1, 1, "Setup complete");
+  main: function(test) {
+    test.equal(1, 1, 'Setup complete');
     test.done();
   }
 };

@@ -15,24 +15,19 @@ exports['expand-in-place'] = {
 
   general: function(test) {
 
-    var files = grunt.file.expand({
-      'filter' : grunt.file.isFile
-    }, expectedDir +'/*');
+    var files = grunt.file.expand({ filter : grunt.file.isFile }, expectedDir + '/*');
 
     //test.expect(files.length * 2);
 
-    for(var i=0; i<files.length; i++) {
-      var basename = files[i].substr(expectedDir.length);
+    files.forEach((file) => {
+      var basename = file.substr(expectedDir.length);
+      test.equal(grunt.file.exists(fixtureDir + basename), true, 'Make sure a fixture files exists for each expected file');
 
-      test.equal(grunt.file.exists(fixtureDir + basename), true, "Make sure a fixture files exists for each expected file");
-
-      var actual = grunt.file.read(fixtureDir + basename);
-      var expected = grunt.file.read(files[i]);
-      actual = actual.replace(/\n/g, "").replace(/\r/g, "");
-      expected = expected.replace(/\n/g, "").replace(/\r/g, "");
+      var actual = grunt.file.read(fixtureDir + basename).replace(/\n|\r/g, '');
+      var expected = grunt.file.read(file).replace(/\n|\r/g, '');
 
       test.equal(actual, expected, 'Does the observed processed file match the expected file');
-    }
+    });
 
     test.done();
   }

@@ -41,9 +41,9 @@ In your project's Gruntfile, add a section named `expand-in-place` to the data o
 grunt.initConfig({
   'expand-in-place': {
     your_target: {
-        'target' : ['path/to/my/files/**/*.html']
-    },
-  },
+      target: ['path/to/my/files/**/*.html']
+    }
+  }
 });
 ```
 
@@ -62,12 +62,11 @@ In this example,
 
 ```js
 grunt.initConfig({
-    'expand-in-place': {
-        'dev': {
-          'target' : ['my/files/*.html']
-        }
-    },
-
+  'expand-in-place': {
+    dev: {
+      target: ['my/files/*.html']
+    }
+  }
 });
 ```
 
@@ -97,7 +96,9 @@ HTML Code:
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+1. We're going with [airbnb's Style-guides](https://github.com/airbnb/javascript/).
+1. Add unit tests for any new or changed functionality.
+1. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
 _(Nothing yet)_
