@@ -100,4 +100,5 @@ HTML Code:
 1. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+12/03/2016 0.1.0 Initial release
+22/04/2016 0.2.0 Fixed engine version requirement and coding style
